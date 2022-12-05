@@ -1,15 +1,3 @@
 <app-nova-transferencia (aoTransferir)="transferir($event)"></app-nova-transferencia>
 
 <app-extrato></app-extrato>
-
-<div *ngIf="transferencias.length > 0; else listaVazia">
-  <div *ngFor="let transferencia of transferencias">
-    <p>Valor: {{transferencia?.valor | currency }}</p>
-    <p>Destino: {{transferencia?.destino}}</p>
-    <p>Data: {{transferencia?.data | date: 'shortDate'}}</p>
-  </div>
-</div>
-
-<ng-template #listaVazia>
-  <p>Sem extrato.</p>
-</ng-template>

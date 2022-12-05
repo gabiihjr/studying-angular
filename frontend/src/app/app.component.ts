@@ -17,8 +17,5 @@ export class AppComponent {
 
   transferir($event: any){
     this.service.adicionar($event);
-    // console.log($event);
-    // const transferencia = {...$event, data: new Date()};
-    // this.transferencias.push(transferencia);
   }
 }
