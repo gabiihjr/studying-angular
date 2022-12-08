@@ -16,14 +16,32 @@
             ></app-message>
         </div>
         <div class="mb-3">
-            <input placeholder="Name and Surname" class="form-control" formControlName="fullName"/>
+            <input placeholder="Full name" class="form-control" formControlName="fullName"/>
         </div>
         <div class="mb-3">
-            <input placeholder="Username" class="form-control" formControlName="userName"/>
+            <input placeholder="Username" class="form-control" formControlName="userName"
+            />
+            <app-message
+                message="Username must be lowercase."
+                *ngIf="newUserForm.get('userName')?.errors?.['lowercase'] &&
+                newUserForm.get('userName')?.touched
+                "
+
+            ></app-message>
+            <app-message
+                *ngIf="newUserForm.get('userName')?.errors?.['userExists']"
+                message="User already exists."
+            >
+            </app-message>
         </div>
         <div class="mb-3">
-            <input placeholder="Password" class="form-control" formControlName="password"/>
+            <input placeholder="Password" type="password" class="form-control" formControlName="password"/>
         </div>
+        <app-message
+            *ngIf="newUserForm.errors?.['passwordLikeUsername']"
+            message="Password must be different from username."
+        >
+        </app-message>
         <div class="d-grid gap-2">
             <button class="btn btn-dark">Register</button>
         </div>
