@@ -1,0 +1,33 @@
+<h4 class="text-center">Register now!</h4>
+<main>
+    <form class="form mt-4" [formGroup]="newUserForm" (submit)="register()">
+        <div class="mb-3">
+            <input placeholder="Email" class="form-control" formControlName="email"/>
+            <app-message
+                *ngIf="newUserForm.get('email')?.errors?.['required'] &&
+                newUserForm.get('email')?.touched"
+                message="Field email required."
+            ></app-message>
+            <app-message
+                message="Email format invalid."
+                *ngIf="newUserForm.get('email')?.errors?.['email'] &&
+                newUserForm.get('email')?.touched
+                "
+            ></app-message>
+        </div>
+        <div class="mb-3">
+            <input placeholder="Name and Surname" class="form-control" formControlName="fullName"/>
+        </div>
+        <div class="mb-3">
+            <input placeholder="Username" class="form-control" formControlName="userName"/>
+        </div>
+        <div class="mb-3">
+            <input placeholder="Password" class="form-control" formControlName="password"/>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-dark">Register</button>
+        </div>
+    </form>
+    <p>Already an user? <a [routerLink]="['']">Return to home</a></p>
+</main>
+

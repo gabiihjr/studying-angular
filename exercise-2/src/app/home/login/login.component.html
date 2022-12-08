@@ -2,15 +2,37 @@
   <h3>Login</h3>
 </header>
 <main>
+  <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
     <div class="mb-3">
-        <label for="emailInput" class="form-label">Email</label>
-        <input placeholder="Email" type="email" id="emailInput" class="form-control"/>
+        <label for="usernameInput" class="form-label">Username</label>
+        <input placeholder="Username" type="username" id="usernameInput" class="form-control"
+        [(ngModel)]="user"
+        name="user"
+        #fieldUser="ngModel"
+        required
+        />
+        <app-message
+        *ngIf="fieldUser.invalid && fieldUser.touched"
+        message="Field username required."></app-message>
     </div>
     <div class="mb-2">
-        <label for="passwordInput" class="form-label">Senha</label>
-        <input placeholder="Senha" type="password" id="passwordInput" class="form-control" />
+        <label for="passwordInput" class="form-label">Password</label>
+        <input placeholder="Password" type="password" id="passwordInput" class="form-control"
+        [(ngModel)]="password"
+        name="password"
+        #fieldPassword="ngModel"
+        required
+        />
+        <app-message
+        *ngIf="fieldPassword.invalid && fieldPassword.touched"
+        message="Field password required."
+        >
+        </app-message>
     </div>
-    <div class="d-md-flex justify-content-md-center">
-      <button type="submit" class="btn btn-dark">Enviar</button>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-dark" [disabled]="loginForm.invalid" >Send</button>
     </div>
+  </form>
+
+  <p>Not an user? <a [routerLink]="['newuser']">Register now!</a></p>
 </main>
