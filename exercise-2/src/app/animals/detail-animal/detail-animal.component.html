@@ -6,6 +6,9 @@
     <div class="col-lg-4">
         <small>
             <p class="text-left break-word">{{ animal.description }}</p>
+            <p (click)="curtir()">{{animal.likes}} LIKES</p>
+            <p>{{animal.comments}} COMENTÁRIOS</p>
+            <p (click)="excluir()">EXCLUIR</p>
         </small>
     </div>
 </div>
