@@ -20,4 +20,12 @@ export class DetailAnimalComponent implements OnInit {
     this.animalId = this.activatedRoute.snapshot.params?.['animalId'];
     this.animal$ = this.animalsService.searchForId(this.animalId);
   }
+
+  curtir() {
+
+  }
+
+  excluir() {
+
+  }
 }
