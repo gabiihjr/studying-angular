@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageModule } from './../components/message/message.module';
 import { CardModule } from './../components/card/card.module';
@@ -24,8 +25,7 @@ import { CommentsComponent } from './detail-animal/comments/comments.component';
     CommonModule,
     AnimalsRoutingModule,
     CardModule,
-    MessageModule,
-    ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class AnimalsModule { }
