@@ -36,4 +36,16 @@ export class AnimalsService {
       })
     )
   }
+
+  upload(description: string, allowsComment: boolean, file: File) {
+    const formData = new FormData();
+    formData.append('description', description);
+    formData.append('allowComents', allowsComment ? 'true' : 'false');
+    formData.append('imageFile', file)
+
+    return this.http.post(`${API}/photos/upload`, formData, {
+      observe:'events',
+      reportProgress: true,
+    });
+  }
 }
