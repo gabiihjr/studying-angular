@@ -1,1 +1,12 @@
-<p>menu works!</p>
+<div [ngClass]="{'active-menu': showsMenu}">
+  <div class="menu-bar">
+    <i (click)="opensMenu()"
+    (keyup.space)="opensMenu()"
+    >
+      X
+    </i>
+    <ng-content></ng-content>
+  </div>
+
+  <div class="overlay" (click)="opensMenu()"></div>
+</div>
