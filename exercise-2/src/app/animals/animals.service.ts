@@ -28,7 +28,7 @@ export class AnimalsService {
   }
 
   like(id: number): Observable<boolean>{
-    return this.http.post(`${API}/photos/${id}/likes`, {}, {observe:'response'})
+    return this.http.post(`${API}/photos/${id}/like`, {}, {observe:'response'})
     .pipe(
       map(() => true),
       catchError((error) => {
