@@ -1,6 +1,19 @@
 <header class="sticky-top">
     <nav class="navbar navbar-light bg-white">
-        <a class="navbar-brand">Testando Header</a>
+        <a class="navbar-brand">
+          <i (click)="menu.opensMenu()"
+          (keyup.space)="menu.opensMenu()"
+          >
+            MENU
+          </i>
+          Testando Header</a>
+        <app-menu #menu>
+          <ul class="list-unstiled">
+            <li>
+              <a [routerLink]="['animals', 'new']">Novo Animal</a>
+            </li>
+          </ul>
+        </app-menu>
         <div *ngIf="user$ | async as user">
             <div *ngIf="user.name; else login">
                 <i class="fa fa-user-circle mr-1">
